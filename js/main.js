@@ -100,13 +100,13 @@ class TicTacToe {
         // 2. Claim that tile in the `this.gameState` array
         // 3. Set the class attribute of the tile to reflect which player has claimed it
         let tileX = event.target.dataset.x;
-        let tiley = event.target.dataset.y;
+        let tileY = event.target.dataset.y;
         this.gameState[tileX][tileY] = this.currentPlayer.token;
         event.target.setAttribute('class', `tile played glyphicon glyphicon-${this.currentPlayer.token}`);
 
     }
     switchPlayer(){
-      console.log('Switching player.');
+      console.log('Switching Player');
       
       if (this.currentPlayer === this.player1) {
           this.currentPlayer = this.player2;
@@ -118,15 +118,15 @@ class TicTacToe {
     }
 
     setUpTileListeners(){
-      console.log('Setting up tile Listeners.');  
+      console.log('Setting up tile Listeners');  
  
-        let tileElements = document.querySelectorAll('tile.');
-      for (tile of tileElements){
+        let tileElements = document.querySelectorAll('.tile');
+      for (let tile of tileElements){
         tile.addEventListener('click', handleMove);
       }
     }
     showWinScreen(){
-        console.log('now showing win screen.');
+        console.log('now showing win screen');
         this.winScreen.setAttribute('class', 'show');
         this.winnerToken.setAttribute('class', `glyphicon ${this.winner.token}`);
 
@@ -141,11 +141,11 @@ class TicTacToe {
         // We must draw the game board by using a loop to create rows with
         // tiles in them. We want to create the same structure as we see in the
         // index.html file.
-        for (let i=0; i=3; i++){
+        for (let i=0; i<3; i++){
         let newRow = document.createElement('div');
             newRow.setAttribute('class', 'row');
            
-        for (let j=0; j=3; j++){
+        for (let j=0; j<3; j++){
         let newCol = document.createElement('div');
             newCol.setAttribute('class', 'col-xs-3');
         let newTile = document.createElement('span');
@@ -193,13 +193,14 @@ document.addEventListener('DOMContentLoaded', function(event){
 // NOTE: End of the "DOMContentLoaded" event listener here.
 
 document.addEventListener('win', function(event){
-  console.log('Detected win event.');
+  console.log('Detected win event');
   game.showWinScreen();
 });
 // NOTE: End of the "win" event listener.
 document.addEventListener('draw', function(event){
-  console.log('Detected draw event.');
+  console.log('Detected draw event');
   game.showDrawScreen();
+});
 // NOTE: End of the "draw" event listener.
 
 // External function for event listeners provided for you.
