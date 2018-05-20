@@ -195,8 +195,7 @@ document.addEventListener('DOMContentLoaded', function(event){
 document.addEventListener('win', function(event){
   console.log('Detected win event.');
   game.showWinScreen();
-}
-);
+});
 // NOTE: End of the "win" event listener.
 document.addEventListener('draw', function(event){
   console.log('Detected draw event.');
